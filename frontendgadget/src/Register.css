@@ -1,0 +1,65 @@
+body{
+     background-image: linear-gradient(rgba(0,0,0,0.262),rgba(0,0,0,0.344)),url('./image/img2.webp'); 
+  height:100%;
+  }
+  .login-top{
+    width:100vw;
+    height:70px;
+    background-color:rgba(0,0,0,0);
+    padding:0px 20px;
+    display:flex;
+    align-items:center;
+  }
+  
+  .login-top img{
+    width :150px;
+  
+  
+  }
+  
+  .reg-box{
+    background-color:rgba(0,0,0,0.870);
+    width:430px;
+    height:700px;
+    border-radius:5px;
+    padding:50px;
+  }
+   
+  .login-box{
+    background-color:rgba(0,0,0,0.870);
+    width:430px;
+    height:600px;
+    border-radius:5px;
+    padding:50px;
+  }
+  .small-text{
+    font-size:13px;
+  }
+  
+  .form-control{
+    box-shadow:none !important ;
+  }
+  
+  .my-signin{
+    padding-left:43%;
+  }
+
+  .container{
+    
+    background-color:rgba(0,0,0,0.870);
+    width: 10px;
+    height: 300px;
+    border-radius:5px;
+    padding:50px;
+    margin-top: 8%;
+  }
+  .butt{
+    padding:50px;
+    font-size:13px;
+    border-radius:5px;
+    margin: 5px;
+  }
+  .landing{
+    background-color: aliceblue;
+  }
+
