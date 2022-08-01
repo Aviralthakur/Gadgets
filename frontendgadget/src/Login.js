@@ -21,7 +21,7 @@ const Login = () => {
     const [user,setUser]=useState({
       mobileNumber:"",
         passworld:""
-    }    )
+    } )
 
     let name,value
     const handleInputs=(e) =>{
@@ -42,9 +42,10 @@ const Login = () => {
          body:(JSON.stringify(user.mobileNumber))
     }).then((resp)=>resp.json())
        .then((q)=>{
-
+         toast.success("Login Success")
         // alert(q.mobileNumber)
          localStorage.setItem('detail',JSON.stringify(q))
+         window.location.href="/landing"
         //  alert(JSON.parse(localStorage.getItem('detail')).mobileNumber)
 
        })
@@ -71,13 +72,12 @@ const Login = () => {
             if(p==='found')
             {
               
-              
-            //  alert("Login Success")
            
             detail();
 
            
-            window.location.href="/landing"
+            
+         
             }
             else{
               toast.error("Login Failed")

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Card,CardBody,CardTitle,CardLink,CardSubtitle,CardText,CardFooter,Button,Container,CardHeader } from 'reactstrap';
 import Footer from './Footer';
+import Menu from './Menu';
 
  const Profile = () => {
   
@@ -11,7 +12,7 @@ import Footer from './Footer';
 
   return (
     <div >
-
+<Menu/>
 <Card
     // className="my-2 "
     // color="black"
@@ -41,7 +42,6 @@ import Footer from './Footer';
          Mobile Number:
        {JSON.parse(localStorage.getItem('detail')).mobileNumber}
       </CardText>
-      <Button outline color="secondary" onClick={()=>{window.location.href="/landing"}}> MENU</Button>
     </CardBody>
   </Card>
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card,CardBody,CardTitle,CardLink,CardSubtitle,CardText,CardFooter,Button,Container,CardHeader } from 'reactstrap';
 import base_url from './api/bootapi';
 import Footer from './Footer';
+import Menu from './Menu';
 
 
 
@@ -24,6 +25,7 @@ const Productdetail = () => {
       },[]);
   return (
   <>
+  <Menu/>
     <Card className='text-center '
   style={{
     width: '18rem',

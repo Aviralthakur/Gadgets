@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card,CardBody,CardTitle,CardLink,CardSubtitle,CardText,CardFooter,Button,Container } from 'reactstrap';
 import "./Register.css"
 import base_url from './api/bootapi';
 import Productdetail from './Productdetail';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -24,10 +24,37 @@ const cart={
   marginTop:"20px"
 }
 
-const Gadgets = ({gadget},{title}) => {
+const Gadgets = ({gadget}) => {
+
+  useEffect(()=>{
+    setCarts({
+      type:gadget.type,
+      price:gadget.price,
+      img:gadget.img,
+      mobileNumber:JSON.parse(localStorage.getItem('detail')).mobileNumber
+    })
+
+  },[]);
+  
+  const[carts,setCarts]=useState({
+    type: "",
+    price:"",
+    img:"",
+    mobileNumber:""
+  });
   const images="./image/"+gadget.img
   return (
-    
+   <>
+   <ToastContainer 
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover/>
             <Card className=' text-center  ' style={cart}>
         <CardBody style={text}>
           <CardTitle  className='font-weight-bold m-4'>GADGETS</CardTitle>
@@ -37,12 +64,28 @@ const Gadgets = ({gadget},{title}) => {
         <CardBody style={text}>
           <CardText color='danger'>PRICE:${gadget.price}</CardText>
           <CardText>{gadget.discription}</CardText>
-            <Button  outline color="secondary"  >Add to cart</Button>
+            <Button  outline color="danger"onClick={()=>{
+             
+              
+              //  alert(JSON.stringify(carts))
+              fetch(base_url+"/cart",{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                 body:(JSON.stringify(carts))
+            })
+            .then(()=>{
+              toast.success("Added to cart")
+              
+            })
+             }}
+            
+            
+            >Add to cart</Button>
+            
           <CardLink className='m-3 ' onClick={()=>{
              //  alert(JSON.stringify(gadget.type));     
              localStorage.setItem('type',gadget.type);
                            window.location.href="/detail"
-                            
                           }
           
           }>More Details</CardLink>
@@ -50,7 +93,7 @@ const Gadgets = ({gadget},{title}) => {
         </CardBody>
 
       </Card>
-    
+      </>
   )
 }
 export default Gadgets;

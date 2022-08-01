@@ -56,7 +56,6 @@ const regis=async(event) =>{
   
     })
     .then(()=>{
-    
       alert("Registered Successful")
        window.location.href="/login" 
     }

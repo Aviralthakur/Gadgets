@@ -9,7 +9,8 @@ import Profile from './Profile';
 import PrivateRoute from './Private';
 import Redirect from './Redirect';
 import Productdetail from './Productdetail';
-
+import Cart from './Cart';
+import Orderplaced from './Orderplaced';
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
     <Route path='/landing' exact element={ <Landing/> } />
     <Route path='/profile' exact element={ <Profile/> } />
     <Route path='/detail' exact element={ <Productdetail /> } />
+    <Route path='/cart' exact element={ <Cart/> } />
+    <Route path='/order' exact element={ <Orderplaced/> } />
+
     </Route> 
     <Route path = "*"  element={<Redirect/>}>
               
