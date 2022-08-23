@@ -30,7 +30,10 @@ public class Orderserviceimpl implements Orderservice {
 			orderitem.setFname(data.get(i).getFname());
 			orderitem.setPrice(data.get(i).getPrice());
 			orderitem.setType(data.get(i).getType());
-			
+			orderitem.setAddress(data.get(i).getAddress());
+			orderitem.setState(data.get(i).getState());
+			orderitem.setCity(data.get(i).getCity());
+			orderitem.setZip(data.get(i).getZip());
 		 orderdeo.save(orderitem);
 		}
 		return "success";

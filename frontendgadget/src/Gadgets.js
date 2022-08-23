@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Card,CardBody,CardTitle,CardLink,CardSubtitle,CardText,CardFooter,Button,Container } from 'reactstrap';
+import { Card,CardBody,CardTitle,CardLink,CardSubtitle,CardText,Button } from 'reactstrap';
 import "./Register.css"
 import base_url from './api/bootapi';
-import Productdetail from './Productdetail';
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -62,7 +61,7 @@ const Gadgets = ({gadget}) => {
         </CardBody>
         <img  src={images} style={img} alt="gadgets image cap" />
         <CardBody style={text}>
-          <CardText color='danger'>PRICE:${gadget.price}</CardText>
+          <CardText color='danger'>PRICE: ₹ {gadget.price}</CardText>
           <CardText>{gadget.discription}</CardText>
             <Button  outline color="danger"onClick={()=>{
              

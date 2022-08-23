@@ -57,10 +57,6 @@ public class Cartserviceimpl implements Cartservice {
 		}
 	}
 
-
-
-
-
 	@Override
 	public List<Cart> getCart(Profile mobileNumber) {
 		return cartdao.findBymobileNumber(mobileNumber.getMobileNumber());

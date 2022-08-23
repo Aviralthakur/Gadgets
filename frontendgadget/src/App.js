@@ -11,13 +11,13 @@ import Redirect from './Redirect';
 import Productdetail from './Productdetail';
 import Cart from './Cart';
 import Orderplaced from './Orderplaced';
-
-
 function App() {
 
   return (
     <Router >
     <Routes>
+   
+    
     <Route path='/' exact element={ <Home/> } />
     <Route path='/register' exact element={ <Registe/> } />
     <Route path='/login' exact element={ <Login/> } />

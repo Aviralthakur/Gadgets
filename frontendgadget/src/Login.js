@@ -109,7 +109,7 @@ const Login = () => {
         <img src ='' alt=""/>
    
     </div>
-    <div className="d-flex justify-content-center align-items-center" >
+    <div className="d-flex justify-content-center align-items-center">
 <section className="login-box">
     <h2 className="text-white">Sign In</h2>
     <form className="mt-4">

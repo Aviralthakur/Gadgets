@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'
-
-import Container from 'react-bootstrap/Container';
+import React from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -20,13 +18,9 @@ const Menu = () => {
     <div style={{width:"100%"}}>
 
       {
-       
-
-       
-        
-    <Navbar bg="dark" variant="dark" className='m-2' style={nav}>
-        
-          <Navbar.Brand href="#">Gadgets Shop</Navbar.Brand>
+         
+    <Navbar bg="dark" variant="dark" className='m-2' style={nav}>     
+         <Navbar.Brand href="#">Gadgets Shop</Navbar.Brand>
           <Nav className="text-center">
             <Nav.Link onClick={()=>{
               if(document.title==="Profile")
@@ -39,8 +33,8 @@ const Menu = () => {
              } }  >
               
               {
-              document.title==="Profile" ? "Menu":"Profile" 
-             
+              document.title==="Profile" ?"Menu":
+              "Profile"
               }</Nav.Link>
             <Nav.Link onClick={()=>{
               if(document.title==="Cart")

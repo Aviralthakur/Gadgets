@@ -62,4 +62,10 @@ body{
   .landing{
     background-color: aliceblue;
   }
-
+  .address-box{
+    background-color:rgba(0,0,0,0.870);
+    width:650px;
+    height:400px;
+    border-radius:5px;
+    padding:50px;
+  }

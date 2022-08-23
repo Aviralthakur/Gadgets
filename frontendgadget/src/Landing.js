@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Container,Row ,ListGroup,ListGroupItem} from 'reactstrap';
+
 import Gadgets from './Gadgets';
 import "./Register.css"
 import Menu from './Menu';
 import base_url from './api/bootapi';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Footer from './Footer';
+
+
+const searchdiv={
+  marginLeft: "auto",
+  marginRight: "auto",
+  width:"300px",
+  marginTop:"10px"
+}
 
  const Landing = () => {
   useEffect(()=>{
@@ -20,7 +28,7 @@ import Footer from './Footer';
     axios.get(`${base_url}/gadgets`).then((responce)=>{
 
       console.log(responce)
-      toast.success("Cources has been loaded")
+      toast.success("Gadgets has been loaded")
       setGadgets(responce.data)
     },
     (error)=>{
@@ -29,27 +37,33 @@ import Footer from './Footer';
     })
   }
 
+  const search=(data)=>{
+    return data.filter((item)=>item.type.toLowerCase().includes(query.toLowerCase()))
+  }
   const [gadgets,setGadgets]=useState([])
-
-
+  // const [showSearchAlert, setShowSearchAlert] = useState(false);
+  const [query,setQuery]=useState("");
   return (
  
 
     <div >
-      
       <Menu/>
+      
+  <div class="form-outline " style={searchdiv}>
+    <input type="search" id="form1" class="form-control" placeholder='Search With Product Name' onChange={(e)=>setQuery(e.target.value)} />
+    
+</div>
+      
+
+      
     <div className='d-flex flex-wrap '> 
       {
-        gadgets.length>0? gadgets.map((item)=>(
+        gadgets.length>0  ?  search(gadgets).map((item)=>(
           <Gadgets gadget={item}/>
-        )):"NO cources"
+        )):""
       }
       <Footer/>
 </div>
-
-     
-
-   
     </div>
     
   )
