@@ -3,15 +3,14 @@ import { Card,CardBody,CardTitle,CardLink,CardSubtitle,CardText,CardFooter,Butto
 import base_url from './api/bootapi';
 import Footer from './Footer';
 import Menu from './Menu';
-
-
+import ReactImageMagnify from 'react-image-magnify';
 
 const Productdetail = () => {
   const [detail,setDetail]=useState([])
      const images="./image/"+detail.img
+     const imageL="./image/L"+detail.img
       useEffect(()=>{
         document.title="Product Detail";
-        // alert(localStorage.getItem('type'))
         fetch(base_url+"/detail",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -19,6 +18,7 @@ const Productdetail = () => {
         }).then((resp)=>resp.json())
         .then((p)=>{
              setDetail(p);
+           
             //  localStorage.removeItem('type')
         })
     
@@ -28,30 +28,46 @@ const Productdetail = () => {
   <Menu/>
     <Card className='text-center '
   style={{
-    width: '18rem',
+    width: '10rem',
     backgroundColor:" rgba(0,0,0,0.870)",
     color:"white",
-    marginLeft:"10px",
-    marginRight:"10px",
+    marginLeft:"auto",
+    marginRight:"auto",
     marginTop:"10px",
-    width:"100%",
-    height:"650px",
+    width:"80%",
+    height:"700px",
     textAlign:"center"
    
   }}
+
 >
-  <img
+<div style={{ display: "block",width:"342px",height:"513px",marginTop:"40px",  marginLeft: "auto",
+      marginRight: "auto"}}>
+<ReactImageMagnify {...{
+    smallImage: {
+        alt: 'Wristwatch by Ted Baker London',
+        isFluidWidth: true,
+        src: images
+    },
+    largeImage: {
+        src: imageL,
+        width: 1200,
+        height: 1800
+    }
+}} />
+</div>
+  {/* <img
     alt="Card image" style={{
       display: "block",
       marginLeft: "auto",
       marginRight: "auto",
-      width:"350px",
-      hight:"350px",
+    
       marginTop:"40px"
     }}
     src={images}
-  />
-  <CardBody>
+  /> */}
+<div style={{marginBootom:"15px"}}>
+  <CardBody >
     <CardTitle tag="h5">
       {detail.type}
     </CardTitle>
@@ -66,11 +82,13 @@ const Productdetail = () => {
   <Button outline className='m-3 '  onClick={()=>{    
              localStorage.removeItem('type')
                            window.location.href="/landing"
-                                }}>
+       }}>
       Menu
       </Button>
   </CardBody>
+  </div>
 </Card>
+
 <Footer/>
 </>
 
